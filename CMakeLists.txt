@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+# env = CMAKE_PREFIX_PATH
+set(Qt5_DIR "D:\\Qt\\5.15.2\\msvc2019_64\\lib\\cmake\\Qt5")
+
+# Project name
+project(ImageCompressor VERSION 1.0)
+
+set(SOURCE_FILES
+    "src/main.cpp"
+    "src/Utils.cpp"
+    "src/Cluster.cpp"
+)
+
+add_executable(ImageCompressor ${SOURCE_FILES})
+
+# Include directories
+target_include_directories(ImageCompressor PUBLIC
+                           ${PROJECT_BINARY_DIR}/include
+                           "D:\\Qt\\5.15.2\\msvc2019_64\\bin"
+)
+
+#set_property(TARGET ImageCompressor PROPERTY WIN32_EXECUTABLE true)
+
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
+
+target_link_libraries(ImageCompressor Qt5::Widgets)

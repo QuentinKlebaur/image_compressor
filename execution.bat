@@ -1,0 +1,1 @@
+ImageCompressor\Release\ImageCompressor.exe
