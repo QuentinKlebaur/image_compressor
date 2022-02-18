@@ -16,8 +16,9 @@ namespace ic {
             void computeCentroid();
             void emptyPixels(std::list<std::unique_ptr<Pixel>> &list);
             void display() const;
-            bool hasMoved() const;
+            bool hasNotMoved() const;
             Color const &getCentroid() const;
+            std::list<std::unique_ptr<Pixel>> const &getPixels() const;
 
         private:
 

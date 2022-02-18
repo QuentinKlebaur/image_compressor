@@ -9,8 +9,8 @@ namespace ic {
             y = Y;
         }
 
-        unsigned char x = 0;
-        unsigned char y = 0;
+        unsigned int x = 0;
+        unsigned int y = 0;
         ~Vector() = default;
     };
 }

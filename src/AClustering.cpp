@@ -18,8 +18,6 @@ void ic::AClustering::run()
         throw std::exception("Distance compute function is not set");
 
     clusturingAlgorithme();
-    std::cout << "Algo end" << std::endl;
-    _image.updateImagePixels(_pixels);
-    std::cout << _outputPath << std::endl;
+    _image.updateImagePixels(_clusters);
     _image.writeImage(_outputPath);
 }

@@ -3,6 +3,7 @@
 #include <QString>
 
 #include <exception>
+#include <iostream>
 
 ic::ImageLoader::ImageLoader()
 {
@@ -10,6 +11,8 @@ ic::ImageLoader::ImageLoader()
 
 void ic::ImageLoader::getImagePixels(std::list<std::unique_ptr<ic::Pixel>> &list)
 {
+    std::cout << "Width: " <<_image.width() << std::endl;
+    std::cout << "Height: " <<_image.height() << std::endl;
     for (int x = 0; x != _image.width(); ++x)
         for (int y = 0; y != _image.height(); ++y) {
             QColor const &color = _image.pixelColor(x, y);
@@ -18,10 +21,11 @@ void ic::ImageLoader::getImagePixels(std::list<std::unique_ptr<ic::Pixel>> &list
         }
 }
 
-void ic::ImageLoader::updateImagePixels(std::list<std::unique_ptr<ic::Pixel>> const &list)
+void ic::ImageLoader::updateImagePixels(std::vector<std::unique_ptr<Cluster>> const &list)
 {
     for (auto i = list.cbegin(); i != list.cend(); ++i)
-        _image.setPixelColor((*i)->pos.x, (*i)->pos.y, QColor((int)(*i)->color.r, (int)(*i)->color.g, (int)(*i)->color.b));
+        for (auto j = (*i)->getPixels().cbegin(); j != (*i)->getPixels().cend(); ++j)
+            _image.setPixelColor((*j)->pos.x, (*j)->pos.y, QColor((int)(*i)->getCentroid().r, (int)(*i)->getCentroid().g, (int)(*i)->getCentroid().b));
 }
 
 bool ic::ImageLoader::writeImage(std::string const &path)

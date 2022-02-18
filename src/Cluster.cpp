@@ -26,9 +26,11 @@ void ic::Cluster::computeCentroid()
         y += (*i)->color.g;
         z += (*i)->color.b;
     }
-    _centroid.r = x / _pixels.size();
-    _centroid.g = y / _pixels.size();
-    _centroid.b = z / _pixels.size();
+    if (!_pixels.empty()) {
+        _centroid.r = x / _pixels.size();
+        _centroid.g = y / _pixels.size();
+        _centroid.b = z / _pixels.size();
+    }
 }
 
 void ic::Cluster::emptyPixels(std::list<std::unique_ptr<Pixel>> &list)
@@ -48,7 +50,13 @@ ic::Color const &ic::Cluster::getCentroid() const
     return _centroid;
 }
 
-bool ic::Cluster::hasMoved() const
+bool ic::Cluster::hasNotMoved() const
 {
     return _lastCentroid == _centroid;
+}
+
+
+std::list<std::unique_ptr<ic::Pixel>> const &ic::Cluster::getPixels() const
+{
+    return _pixels;
 }

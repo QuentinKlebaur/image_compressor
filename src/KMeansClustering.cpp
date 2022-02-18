@@ -20,6 +20,7 @@ void ic::KMeansClustering::computeClusters() {
             distances.push_back(_distFunction(_clusters[j]->getCentroid(), (*pixel)->color));
         auto min = std::min_element(distances.begin(), distances.end());
         _clusters[std::distance(distances.begin(), min)]->addPixel(std::move(_pixels.front()));
+        _pixels.pop_front();
     }
 }
 
@@ -29,31 +30,29 @@ void ic::KMeansClustering::resetClusters() {
 }
 
 void ic::KMeansClustering::computeCentroids() {
-    for (auto i = _clusters.begin(); i != _clusters.end(); ++i)
+    for (auto i = _clusters.begin(); i != _clusters.end(); ++i) {
         (*i)->computeCentroid();
+    }
 }
 
 
 bool ic::KMeansClustering::computeEnd() {
     for (auto i = _clusters.cbegin(); i != _clusters.cend(); ++i)
-        if ((*i)->hasMoved())
+        if (!(*i)->hasNotMoved())
             return false;
     return true;
 }
 
 void ic::KMeansClustering::clusturingAlgorithme()
 {
-    std::cout << "Algo starts running" << std::endl;
     for (int i = 0; i < _k; ++i)
         _clusters.push_back(std::make_unique<Cluster>());
-    std::cout << "Clusters created" << std::endl;
+    int i = 0;
     do {
-        std::cout << "Before" << std::endl;
-        computeClusters();
-        std::cout << "Clusters Computed" << std::endl;
-        computeCentroids();
-        std::cout << "Centroids Computed" << std::endl;
+        std::cout << "-------------" << i << "-------------" << std::endl;
         resetClusters();
-        std::cout << "Clusters Reseted" << std::endl;
+        computeClusters();
+        computeCentroids();
+        ++i;
     } while (!computeEnd());
 }
