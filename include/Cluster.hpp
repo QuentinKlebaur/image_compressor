@@ -5,7 +5,6 @@
 
 #include <list>
 #include <memory>
-#include <functional>
 
 namespace ic {
     class Cluster {
@@ -14,16 +13,16 @@ namespace ic {
             Cluster();
 
             void addPixel(std::unique_ptr<Pixel> &&pixel);
-            void computeClusterColor();
-            void setDistanceFunction(std::function<float(Color const &cl, Color const &cr)> const &function);
+            void computeCentroid();
             void emptyPixels(std::list<std::unique_ptr<Pixel>> &list);
             void display() const;
-            Color const&getColor();
+            bool hasMoved() const;
+            Color const &getCentroid() const;
 
         private:
 
             std::list<std::unique_ptr<Pixel>> _pixels;
-            Color _clusterColor;
-            std::function<float(Color const &cl, Color const &cr)> _distFunction = nullptr;
+            Color _centroid;
+            Color _lastCentroid;
     };
 }

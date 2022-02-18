@@ -9,9 +9,13 @@ set(Qt5_DIR "D:\\Qt\\5.15.2\\msvc2019_64\\lib\\cmake\\Qt5")
 project(ImageCompressor VERSION 1.0)
 
 set(SOURCE_FILES
+    "src/AClustering.cpp"
+    "src/Cluster.cpp"
+    "src/Distance.cpp"
+    "src/ImageLoader.cpp"
+    "src/KMeansClustering.cpp"
     "src/main.cpp"
     "src/Utils.cpp"
-    "src/Cluster.cpp"
 )
 
 add_executable(ImageCompressor ${SOURCE_FILES})

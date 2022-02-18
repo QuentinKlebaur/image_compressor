@@ -36,3 +36,6 @@
 CMakeFiles
 build
 ImageCompressor
+*.png
+*.jpg
+*.gif

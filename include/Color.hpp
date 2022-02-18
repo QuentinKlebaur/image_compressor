@@ -10,6 +10,10 @@ namespace ic {
             b = B;
         }
 
+        bool operator==(Color const &rhs) const {
+            return r == rhs.r && g == rhs.g && b == rhs.b;
+        }
+
         unsigned char r = 0;
         unsigned char g = 0;
         unsigned char b = 0;

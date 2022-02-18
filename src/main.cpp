@@ -1,28 +1,25 @@
-#include "Color.hpp"
-#include "Pixel.hpp"
-#include "Cluster.hpp"
+#include "KMeansClustering.hpp"
+#include "AClustering.hpp"
+#include "Distance.hpp"
 
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
 #include <memory>
+#include <vector>
 
 int main(int ac, char **av) {
-    ic::Color c{(unsigned char)10, (unsigned char)255, (unsigned char)256};
-    std::string input;
 
-//    std::cout << "Hello world" << std::endl;
-//    std::cout << c << std::endl;
-    std::srand(std::time(nullptr));
+    std::vector<std::unique_ptr<ic::AClustering>> v;
 
 
-    std::list<std::unique_ptr<ic::Pixel>> list;
-    ic::Cluster cluster;
-
-    list.push_back(std::make_unique<ic::Pixel>(1, 1, 1, 1, 1));
-    list.push_back(std::make_unique<ic::Pixel>(2, 2, 2, 2, 2));
+    std::cout << "Hello" << std::endl;
+    v.push_back(std::make_unique<ic::KMeansClustering>("tmp.png", "computed.png", 32));
+    for (auto i = v.begin(); i != v.end(); ++i)
+        (*i)->setDistanceFunction(&ic::euclideanDistance);
+    for (auto i = v.begin(); i != v.end(); ++i)
+        (*i)->run();
 
     system("pause");
-
     return 0;
 }
