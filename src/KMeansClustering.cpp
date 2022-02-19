@@ -3,6 +3,7 @@
 #include <exception>
 #include <array>
 #include <algorithm>
+#include <chrono>
 
 ic::KMeansClustering::KMeansClustering(std::string const &input, std::string const &output, unsigned int k) :
     AClustering(input, output), _k(k)
@@ -11,17 +12,23 @@ ic::KMeansClustering::KMeansClustering(std::string const &input, std::string con
 }
 
 void ic::KMeansClustering::computeClusters() {
-    while (!_pixels.empty()) {
-        auto pixel = _pixels.begin();
-        size_t k = _k;
-        std::vector<float> distances;
+    for (auto i = _pixels.begin(); i != _pixels.end(); ++i) {
+        int index = 0;
+        float min = _distFunction(_clusters[0]->getCentroid(), (*i)->color);
+        float tmp;
 
-        for (int j = 0; j < _k; ++j)
-            distances.push_back(_distFunction(_clusters[j]->getCentroid(), (*pixel)->color));
-        auto min = std::min_element(distances.begin(), distances.end());
-        _clusters[std::distance(distances.begin(), min)]->addPixel(std::move(_pixels.front()));
-        _pixels.pop_front();
+        for (int j = 1; j < _k; ++j) {
+            tmp = _distFunction(_clusters[j]->getCentroid(), (*i)->color);
+            if (tmp < min) {
+                min = tmp;
+                index = j;
+            }
+        }
+        _clusters[index]->addPixel(std::move(*i));
+        //auto min = std::min_element(distances.begin(), distances.end());
+        //_clusters[std::distance(distances.begin(), min)]->addPixel(std::move(*i));
     }
+    _pixels.clear();
 }
 
 void ic::KMeansClustering::resetClusters() {
@@ -50,9 +57,16 @@ void ic::KMeansClustering::clusturingAlgorithme()
     int i = 0;
     do {
         std::cout << "-------------" << i << "-------------" << std::endl;
+        auto time1 = std::chrono::steady_clock::now();
         resetClusters();
+        auto time2 = std::chrono::steady_clock::now();
+        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time2 - time1)).count() << std::endl;
         computeClusters();
+        auto time3 = std::chrono::steady_clock::now();
+        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time3 - time2)).count() << std::endl;
         computeCentroids();
+        auto time4 = std::chrono::steady_clock::now();
+        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time4 - time3)).count() << std::endl;
         ++i;
     } while (!computeEnd());
 }

@@ -11,7 +11,7 @@ ic::Cluster::Cluster() {
 
 void ic::Cluster::addPixel(std::unique_ptr<Pixel> &&pixel)
 {
-    _pixels.push_back(std::move(pixel));
+    _pixels.push_front(std::move(pixel));
 }
 
 void ic::Cluster::computeCentroid()

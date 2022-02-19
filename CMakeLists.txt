@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # env = CMAKE_PREFIX_PATH
 set(Qt5_DIR "D:\\Qt\\5.15.2\\msvc2019_64\\lib\\cmake\\Qt5")
 
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
 # Project name
 project(ImageCompressor VERSION 1.0)
 
