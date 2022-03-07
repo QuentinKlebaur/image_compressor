@@ -33,8 +33,3 @@
 CMakeFiles
 build
 ImageCompressor
-*.png
-*.jpg
-*.gif
-img/
-output/
