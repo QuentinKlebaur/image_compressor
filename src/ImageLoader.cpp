@@ -11,8 +11,6 @@ ic::ImageLoader::ImageLoader()
 
 void ic::ImageLoader::getImagePixels(std::list<std::unique_ptr<ic::Pixel>> &list)
 {
-    std::cout << "Width: " <<_image.width() << std::endl;
-    std::cout << "Height: " <<_image.height() << std::endl;
     for (int x = 0; x != _image.width(); ++x)
         for (int y = 0; y != _image.height(); ++y) {
             QColor const &color = _image.pixelColor(x, y);
@@ -37,5 +35,5 @@ void ic::ImageLoader::setImage(std::string const &path)
 {
     _image.load(path.c_str());
     if (_image.isNull())
-        throw std::exception("File not found");
+        throw std::exception(std::string("Image not found (" + path + ")").c_str());
 }

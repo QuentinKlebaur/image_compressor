@@ -33,6 +33,12 @@ void ic::Cluster::computeCentroid()
     }
 }
 
+
+void ic::Cluster::addPixels(std::list<std::unique_ptr<ic::Pixel>> &list)
+{
+    _pixels.splice(_pixels.end(), list);
+}
+
 void ic::Cluster::emptyPixels(std::list<std::unique_ptr<Pixel>> &list)
 {
     list.splice(list.end(), _pixels);

@@ -7,13 +7,12 @@ namespace ic {
             KMeansClustering(std::string const &input, std::string const &output, unsigned int k);
 
         private:
-            void clusturingAlgorithme();
+            void clusturingAlgorithme() override;
             void computeClusters();
             void resetClusters();
             void computeCentroids();
             bool computeEnd();
 
-            Color _lastMeanColor;
-            const unsigned int _k;
+            unsigned int _k;
     };
 }

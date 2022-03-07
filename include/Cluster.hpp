@@ -13,6 +13,7 @@ namespace ic {
             Cluster();
 
             void addPixel(std::unique_ptr<Pixel> &&pixel);
+            void addPixels(std::list<std::unique_ptr<Pixel>> &list);
             void computeCentroid();
             void emptyPixels(std::list<std::unique_ptr<Pixel>> &list);
             void display() const;

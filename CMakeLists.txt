@@ -16,6 +16,7 @@ set(SOURCE_FILES
     "src/Distance.cpp"
     "src/ImageLoader.cpp"
     "src/KMeansClustering.cpp"
+    "src/DbscanClustering.cpp"
     "src/main.cpp"
     "src/Utils.cpp"
 )

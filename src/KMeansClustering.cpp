@@ -8,7 +8,8 @@
 ic::KMeansClustering::KMeansClustering(std::string const &input, std::string const &output, unsigned int k) :
     AClustering(input, output), _k(k)
 {
-
+    if (_k <= 0)
+        _k = 1;
 }
 
 void ic::KMeansClustering::computeClusters() {
@@ -52,21 +53,14 @@ bool ic::KMeansClustering::computeEnd() {
 
 void ic::KMeansClustering::clusturingAlgorithme()
 {
+    int i = 0;
+
     for (int i = 0; i < _k; ++i)
         _clusters.push_back(std::make_unique<Cluster>());
-    int i = 0;
     do {
-        std::cout << "-------------" << i << "-------------" << std::endl;
-        auto time1 = std::chrono::steady_clock::now();
+        std::cout << "------------- " << ++i << " Loop -------------" << std::endl;
         resetClusters();
-        auto time2 = std::chrono::steady_clock::now();
-        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time2 - time1)).count() << std::endl;
         computeClusters();
-        auto time3 = std::chrono::steady_clock::now();
-        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time3 - time2)).count() << std::endl;
         computeCentroids();
-        auto time4 = std::chrono::steady_clock::now();
-        std::cout << "elapsed time: " << ((std::chrono::duration<double>)(time4 - time3)).count() << std::endl;
-        ++i;
     } while (!computeEnd());
 }

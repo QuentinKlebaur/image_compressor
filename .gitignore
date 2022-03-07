@@ -39,3 +39,5 @@ ImageCompressor
 *.png
 *.jpg
 *.gif
+img/
+output/
