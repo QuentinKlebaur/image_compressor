@@ -25,8 +25,7 @@ add_executable(ImageCompressor ${SOURCE_FILES})
 
 # Include directories
 target_include_directories(ImageCompressor PUBLIC
-                           ${PROJECT_BINARY_DIR}/include
-#                           "D:\\Qt\\5.15.2\\msvc2019_64\\bin"
+                           ${PROJECT_BINARY_DIR}/src/include
 )
 
 #set_property(TARGET ImageCompressor PROPERTY WIN32_EXECUTABLE true)
