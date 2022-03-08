@@ -23,5 +23,5 @@ float ic::manhattanDistance(Color const &cl, Color const &cr)
     short y2 = (short)cr.g;
     short z2 = (short)cr.b;
 
-    return std::sqrt(std::abs(x1 - x2) + std::abs(y1 - y2) + std::abs(z1 - z2));
+    return std::abs(x1 - x2) + std::abs(y1 - y2) + std::abs(z1 - z2);
 }

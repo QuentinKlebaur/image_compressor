@@ -7,13 +7,13 @@
 ::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output kmeans manhattan 64
 
 
-::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output dbscan manhattan 5
-::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output dbscan manhattan 10
 ::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output dbscan manhattan 20
+::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output dbscan manhattan 100
+::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output dbscan manhattan 150
 
-::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output dbscan manhattan 5
-::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output dbscan manhattan 10
 ::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output dbscan manhattan 20
+::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output dbscan manhattan 100
+::ImageCompressor\Release\ImageCompressor.exe img/1920_1080.png output dbscan manhattan 150
 
 
 ::ImageCompressor\Release\ImageCompressor.exe img/680_618.png output kmeans euclidean 16

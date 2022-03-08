@@ -29,21 +29,21 @@ https://cmake.org/download/
 
 Sélectionnez ensuite le fichier **Windows x64 ZIP** (cmake-3.23.0-rc2-windows-x86_64.zip) de la rubrique **Binary distributions**.
 
-Une fois téléchargé, il vous suffira de le décompresser, puis d'ajouter le chemin menant à l'éxecutable de cmake se trouvant de la fichier **bin** du fichier fraîchement décompressé à votre variable d'environnement **Path** (*ex: C:\\cmake-3.23.0-rc2-windows-x86_64\\bin*).
+Une fois téléchargé, il vous suffira de le décompresser, puis d'ajouter le chemin menant à l'exécutable de cmake se trouvant de la fichier **bin** du fichier fraîchement décompressé à votre variable d'environnement **Path** (*ex: C:\\cmake-3.23.0-rc2-windows-x86_64\\bin*).
 
 Pour ajouter une variable d'environnement sur Windows, il faut:
 - Aller dans le menu **Démarrer** de windows
 - Écrire "variable", ce qui vous proposera un menu **Modifier les variables d'environnement système. Cliquez dessus.
 - CLiquez sur le bouton **Variables d'environnement...**
 - Dans la rubrique **Variables système**, trouvez et cliquez sur **Path**, puis sur le bouton **modifier...**.
-- Cliquez sur **Nouveau** et collez le chemin menant à l'éxecutable de CMake.
+- Cliquez sur **Nouveau** et collez le chemin menant à l'exécutable de CMake.
 - Cliquez sur **Ok** pour chaque fenêtre qui s'est ouverte pour valider les modifications.
 
 ## Build
 
 Pour build le projet, il suffit de lancer le script **build.bat** à la racine de ce dossier. Je recommande de le lancer dans un terminal afin de vérifier si tout s'est bien passé. Si tout à bien été installé au préalable, il ne devrait pas y avoir de problème de build.
 
-## Éxecution du projet
+## Exécution du projet
 
 Tout comme pour le build, vous pourrez utiliser le script **execution.bat** pour lancez le projet.
 Vous pourrez également modifier ce script avec n'importe quel éditeur de texte afin de modifier les arguments d'entrée du programme.
@@ -63,10 +63,10 @@ Il vous sera donc possible de chosir l'image que vous voulez compresser, le doss
 
 ## Tips
 
-Je vous recommande fortement d'utiliser la fonction de calcul *manhattan* car elle est bien plus rapide d'éxecution que l'*euclidean*.
+Je vous recommande fortement d'utiliser la fonction de calcul *manhattan* car elle est bien plus rapide d'exécution que l'*euclidean*.
 
-Lorsque le programme s'éxecute, il ouvre un terminal montrant à quelle étape il est de la compression. À la fin de l'éxecution, le temps d'éxecution est également affiché.
+Lorsque le programme s'exécute, il ouvre un terminal montrant à quelle étape il est de la compression. À la fin de l'exécution, le temps d'exécution est également affiché.
 
 Lorsqu'une image compressé est enregistré, elle est automatiquement nommé en fonction des arguments utilisés. Par exemple, si l'image d'origine se nommait **dog.png**, l'image créée par le programme pourrait sobrement s'intituler **dog_dbscan_euclidean_30.png**.
 
-Si le programme est lancé deux fois avec les mêmes arguments, la première image créée ne sera pas écrasé par la seconde éxecution, mais le programme créera deux images: **dog_dbscan_euclidean_30.png** et **dog_dbscan_euclidean_30 (1).png**.
+Si le programme est lancé deux fois avec les mêmes arguments, la première image créée ne sera pas écrasé par la seconde exécution, mais le programme créera deux images: **dog_dbscan_euclidean_30.png** et **dog_dbscan_euclidean_30 (1).png**.
