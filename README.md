@@ -46,7 +46,7 @@ Pour build le projet, il suffit de lancer le script **build.bat** à la racine d
 ## Exécution du projet
 
 Tout comme pour le build, vous pourrez utiliser le script **execution.bat** pour lancez le projet.
-Vous pourrez également modifier ce script avec n'importe quel éditeur de texte afin de modifier les arguments d'entrée du programme.
+Vous pourrez également modifier ce script avec n'importe quel éditeur de texte afin de modifier les arguments d'entrées du programme.
 
 Voici comment se lance le programme:
 
@@ -59,7 +59,7 @@ Voici comment se lance le programme:
 - *calcul_distance* : euclidean | manhattan
 - *k|epsilon* : 16 | 23.55
 
-Il vous sera donc possible de chosir l'image que vous voulez compresser, le dossier où elle sera enregistré, l'algorithme de compression, la fonction de calcul de distance entre 2 couleurs et l'argument de configuration de l'algorithme.
+Il vous sera donc possible de chosir l'image que vous voulez compresser, le dossier où elle sera enregistrée, l'algorithme de compression, la fonction de calcul de distance entre 2 couleurs et l'argument de configuration de l'algorithme.
 
 ## Tips
 
@@ -67,6 +67,6 @@ Je vous recommande fortement d'utiliser la fonction de calcul *manhattan* car el
 
 Lorsque le programme s'exécute, il ouvre un terminal montrant à quelle étape il est de la compression. À la fin de l'exécution, le temps d'exécution est également affiché.
 
-Lorsqu'une image compressé est enregistré, elle est automatiquement nommé en fonction des arguments utilisés. Par exemple, si l'image d'origine se nommait **dog.png**, l'image créée par le programme pourrait sobrement s'intituler **dog_dbscan_euclidean_30.png**.
+Lorsqu'une image compressé est enregistré, elle est automatiquement nommée en fonction des arguments utilisés. Par exemple, si l'image d'origine se nomme **dog.png**, l'image créée par le programme pourrait sobrement s'intituler **dog_dbscan_euclidean_30.png**.
 
 Si le programme est lancé deux fois avec les mêmes arguments, la première image créée ne sera pas écrasé par la seconde exécution, mais le programme créera deux images: **dog_dbscan_euclidean_30.png** et **dog_dbscan_euclidean_30 (1).png**.
